@@ -2976,7 +2976,7 @@
     "/v1/ScanTask/Finish": {
       "post": {
         "tags": ["ScanTask"],
-        "summary": "Finish SCan Task",
+        "summary": "Finish Scan Task",
         "operationId": "ScanTask_Finish",
         "parameters": [
           {

@@ -17,20 +17,14 @@
             "group": "InfoTask",
             "pages": [
               "api-reference/endpoints/infotask/get-my-info-tasks",
-              "api-reference/endpoints/infotask/get-my-info-task-by-id",
-              "api-reference/endpoints/infotask/get-my-info-task-by-bar-code",
-              "api-reference/endpoints/infotask/add-info-task",
-              "api-reference/endpoints/infotask/add-or-get-info-task",
-              "api-reference/endpoints/infotask/batch-add-info-task",
-              "api-reference/endpoints/infotask/get-and-assign-info-task",
-              "api-reference/endpoints/infotask/finish-info-task",
-              "api-reference/endpoints/infotask/get-my-usage",
               "api-reference/endpoints/infotask/get-my-info-task-by-id-1",
               "api-reference/endpoints/infotask/get-my-info-task-by-bar-code-1",
               "api-reference/endpoints/infotask/add-info-task-1",
               "api-reference/endpoints/infotask/add-or-get-info-task-1",
               "api-reference/endpoints/infotask/batch-add-info-task-1",
-              "api-reference/endpoints/infotask/finish-info-task-1"
+              "api-reference/endpoints/infotask/get-and-assign-info-task",
+              "api-reference/endpoints/infotask/finish-info-task-1",
+              "api-reference/endpoints/infotask/get-my-usage"
             ]
           }
         ]
