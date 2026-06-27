@@ -5472,7 +5472,7 @@
           },
           "countries": {
             "type": "array",
-            "description": "Multi-marketplace request. Provide up to 4 marketplace country codes to scan the barcode across several Amazon marketplaces in a single request. Maximum of 4 codes per request. If omitted, the marketplace from the X-Country-Code header (default US) is used.",
+            "description": "Multi-marketplace request. Provide up to 4 marketplace country codes (maximum 4) to scan the barcode across several Amazon marketplaces in a single request. Token cost: a single-marketplace request uses 1 token; a multi-marketplace request (2-4 codes) uses 2 tokens. If omitted, the marketplace from the X-Country-Code header (default US) is used.",
             "maxItems": 4,
             "nullable": true,
             "items": {
