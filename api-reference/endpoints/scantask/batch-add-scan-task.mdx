@@ -1,3 +1,17 @@
 ---
 openapi: post /v1/ScanTask/Batch
 ---
+
+import SupportedMarketplaces from "/snippets/supported-marketplaces.mdx";
+
+<SupportedMarketplaces />
+
+### Example: multi-marketplace batch request
+
+```json
+{
+  "barCodes": ["X0012ABCDE", "X0034FGHIJ"],
+  "countries": ["US", "CA", "UK", "AE"],
+  "callBackUrl": "https://your-app.example.com/webhook"
+}
+```

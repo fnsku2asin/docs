@@ -2867,6 +2867,18 @@
         "tags": ["ScanTask"],
         "summary": "Add Or Get Scan Task",
         "operationId": "ScanTask_AddOrGet",
+        "parameters": [
+          {
+            "name": "X-Country-Code",
+            "in": "header",
+            "description": "Optional 2-letter marketplace country code (e.g. US, UK, CA). Defaults to US if not provided. Used when the request body does not specify a 'countries' array. See the Supported Marketplaces list on this page.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "US"
+            }
+          }
+        ],
         "requestBody": {
           "x-name": "command",
           "content": {
@@ -2903,6 +2915,18 @@
         "tags": ["ScanTask"],
         "summary": "Batch Add Scan Task",
         "operationId": "ScanTask_Batch",
+        "parameters": [
+          {
+            "name": "X-Country-Code",
+            "in": "header",
+            "description": "Optional 2-letter marketplace country code (e.g. US, UK, CA). Defaults to US if not provided. Used when the request body does not specify a 'countries' array. See the Supported Marketplaces list on this page.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "US"
+            }
+          }
+        ],
         "requestBody": {
           "x-name": "command",
           "content": {
@@ -5502,6 +5526,16 @@
             "type": "string",
             "minLength": 1
           },
+          "countries": {
+            "type": "array",
+            "description": "Multi-marketplace request. Provide up to 4 marketplace country codes (maximum 4) to scan the barcode across several Amazon marketplaces in a single request. Token cost: a single-marketplace request uses 1 token; a multi-marketplace request (2-4 codes) uses 2 tokens. If omitted, the marketplace from the X-Country-Code header (default US) is used.",
+            "maxItems": 4,
+            "nullable": true,
+            "items": {
+              "type": "string",
+              "enum": ["UK", "AE", "US", "CA", "MX", "FR", "JP", "IN", "SA", "NL", "PL", "SE", "ES", "IT", "BR", "SG", "TR", "EG"]
+            }
+          },
           "callBackUrl": {
             "type": "string",
             "nullable": true
@@ -5517,6 +5551,16 @@
             "type": "array",
             "items": {
               "type": "string"
+            }
+          },
+          "countries": {
+            "type": "array",
+            "description": "Multi-marketplace request. Provide up to 4 marketplace country codes (maximum 4) to scan each barcode across several Amazon marketplaces in a single request. Token cost: a single-marketplace request uses 1 token; a multi-marketplace request (2-4 codes) uses 2 tokens. If omitted, the marketplace from the X-Country-Code header (default US) is used.",
+            "maxItems": 4,
+            "nullable": true,
+            "items": {
+              "type": "string",
+              "enum": ["UK", "AE", "US", "CA", "MX", "FR", "JP", "IN", "SA", "NL", "PL", "SE", "ES", "IT", "BR", "SG", "TR", "EG"]
             }
           },
           "callBackUrl": {

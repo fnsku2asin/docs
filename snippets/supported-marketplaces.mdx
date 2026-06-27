@@ -1,0 +1,27 @@
+## Supported Marketplaces
+
+Use these 2-letter codes in the `countries` array (multi-marketplace request) or the `X-Country-Code` header (single marketplace).
+
+| Code | Marketplace | Code | Marketplace |
+| ---- | ----------- | ---- | ----------- |
+| UK | United Kingdom | NL | Netherlands |
+| AE | United Arab Emirates | PL | Poland |
+| US | United States | SE | Sweden |
+| CA | Canada | ES | Spain |
+| MX | Mexico | IT | Italy |
+| FR | France | BR | Brazil |
+| JP | Japan | SG | Singapore |
+| IN | India | TR | Turkey |
+| SA | Saudi Arabia | EG | Egypt |
+
+<Info>
+  **Multi-marketplace requests:** pass up to **4** country codes in the `countries` array to scan across several Amazon marketplaces in one request. **Maximum 4 codes per request.**
+</Info>
+
+<Note>
+  **Token cost:** a single-marketplace request (one code, or none) consumes **1 token**. A multi-marketplace request (2–4 codes) consumes **2 tokens**.
+</Note>
+
+<Note>
+  If you omit the `countries` array, the request uses the marketplace from the `X-Country-Code` header. When that header is not provided, it defaults to **US**.
+</Note>
