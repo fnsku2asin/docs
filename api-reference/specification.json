@@ -5501,7 +5501,7 @@
             "nullable": true,
             "items": {
               "type": "string",
-              "enum": ["UK", "AE", "US", "CA", "MX", "FR", "JP", "IN", "SA", "NL", "PL", "SE", "ES", "IT", "BR", "SG", "TR", "EG"]
+              "enum": ["AE", "IT", "MX", "IN", "CA", "TR", "NL", "ES", "BR", "AU", "DE", "UK", "FR", "SG", "JP", "SA", "SE", "US"]
             }
           },
           "callBackUrl": {
@@ -5533,7 +5533,7 @@
             "nullable": true,
             "items": {
               "type": "string",
-              "enum": ["UK", "AE", "US", "CA", "MX", "FR", "JP", "IN", "SA", "NL", "PL", "SE", "ES", "IT", "BR", "SG", "TR", "EG"]
+              "enum": ["AE", "IT", "MX", "IN", "CA", "TR", "NL", "ES", "BR", "AU", "DE", "UK", "FR", "SG", "JP", "SA", "SE", "US"]
             }
           },
           "callBackUrl": {
@@ -5560,7 +5560,7 @@
             "nullable": true,
             "items": {
               "type": "string",
-              "enum": ["UK", "AE", "US", "CA", "MX", "FR", "JP", "IN", "SA", "NL", "PL", "SE", "ES", "IT", "BR", "SG", "TR", "EG"]
+              "enum": ["AE", "IT", "MX", "IN", "CA", "TR", "NL", "ES", "BR", "AU", "DE", "UK", "FR", "SG", "JP", "SA", "SE", "US"]
             }
           },
           "callBackUrl": {
