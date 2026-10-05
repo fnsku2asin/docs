@@ -1,0 +1,44 @@
+---
+openapi: post /v1/ScanTask/BatchV2
+---
+
+import SupportedMarketplaces from "/snippets/supported-marketplaces.mdx";
+
+Submit many barcodes in one request, each with its **own** marketplaces.
+
+<Note>
+  **Batch vs. BatchV2:** **Batch Add Scan Task** applies its single `countries` list to **every** barcode in the request. Use `BatchV2` when different barcodes should be scanned in different marketplaces.
+</Note>
+
+<Warning>
+  Do not repeat a country code within a barcode's `countries` (for example `["US", "US"]` or `["US", "us"]`). A request containing repeated codes is rejected and no tasks are created.
+</Warning>
+
+<SupportedMarketplaces />
+
+### Example: one marketplace per barcode
+
+```json
+{
+  "items": [
+    { "barCode": "X0012ABCDE", "countries": ["US"] },
+    { "barCode": "X0034FGHIJ", "countries": ["DE"] },
+    { "barCode": "X0056KLMNO", "countries": ["UK", "FR"] }
+  ],
+  "callBackUrl": "https://your-app.example.com/webhook"
+}
+```
+
+### Example response
+
+```json
+{
+  "data": [
+    { "id": 101, "barCode": "X0012ABCDE" },
+    { "id": 102, "barCode": "X0034FGHIJ" },
+    { "id": 103, "barCode": "X0056KLMNO" }
+  ],
+  "messages": [],
+  "succeeded": true
+}
+```
