@@ -38,6 +38,7 @@
           "api-reference/endpoints/scantask/add-scan-task",
           "api-reference/endpoints/scantask/add-or-get-scan-task",
           "api-reference/endpoints/scantask/batch-add-scan-task",
+          "api-reference/endpoints/scantask/batch-add-scan-task-v2",
           "api-reference/endpoints/scantask/get-and-assign-scan-task",
           "api-reference/endpoints/scantask/finish-scan-task",
           "api-reference/endpoints/scantask/get-my-usage"

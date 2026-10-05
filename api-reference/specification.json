@@ -2958,6 +2958,57 @@
         ]
       }
     },
+    "/v1/ScanTask/BatchV2": {
+      "post": {
+        "tags": [
+          "ScanTask"
+        ],
+        "summary": "Batch Add Scan Task (per-barcode countries)",
+        "description": "Submit many barcodes in one request, each with its own marketplaces. Use this instead of Batch when barcodes target different marketplaces: Batch applies its single countries list to every barcode.",
+        "operationId": "ScanTask_BatchV2",
+        "parameters": [
+          {
+            "name": "X-Country-Code",
+            "in": "header",
+            "description": "Optional 2-letter marketplace country code (e.g. US, UK, CA). Defaults to US if not provided. Used when the request body does not specify a 'countries' array. See the Supported Marketplaces list on this page.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "US"
+            }
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchAddScanTasksV2Command"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Status 200 OK with the id of every newly created task",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultOfListOfTaskOutput"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ]
+      }
+    },
     "/v1/ScanTask/Assign": {
       "post": {
         "tags": ["ScanTask"],
@@ -5564,6 +5615,106 @@
             }
           },
           "callBackUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "BatchAddScanTasksV2Command": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "description": "One entry per barcode. A barcode listed more than once is only processed once.",
+            "items": {
+              "$ref": "#/components/schemas/ScanTaskItem"
+            }
+          },
+          "callBackUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "ScanTaskItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "barCode"
+        ],
+        "properties": {
+          "barCode": {
+            "type": "string",
+            "minLength": 1
+          },
+          "countries": {
+            "type": "array",
+            "description": "Marketplace country codes for this barcode only (e.g. [\"US\"]). Each barcode in the request can target different marketplaces. Do not repeat a code: a request containing repeated country codes is rejected and nothing is created. If omitted, the marketplace from the X-Country-Code header (default US) is used.",
+            "maxItems": 4,
+            "nullable": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "AE",
+                "IT",
+                "MX",
+                "IN",
+                "CA",
+                "TR",
+                "NL",
+                "ES",
+                "BR",
+                "AU",
+                "DE",
+                "UK",
+                "FR",
+                "SG",
+                "JP",
+                "SA",
+                "SE",
+                "BE",
+                "EG",
+                "PL",
+                "ZA",
+                "US"
+              ]
+            }
+          }
+        }
+      },
+      "ResultOfListOfTaskOutput": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Result"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "data": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/TaskOutput"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "TaskOutput": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "barCode": {
             "type": "string",
             "nullable": true
           }
